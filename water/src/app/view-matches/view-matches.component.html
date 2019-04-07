@@ -1,0 +1,25 @@
+<div class="jumbotron jumbotron-fluid">
+    
+      <h1 style="text-align:center">Find your matches</h1>
+    
+</div>
+
+
+<div *ngFor="let user of tempArr">
+<div class="card">
+    <div class="card-header" style="text-align:center">Hi! I am <img src="https://img.icons8.com/metro/26/000000/administrator-male.png" style="width:20px;height: auto;"> {{user.name}}!!</div> 
+    <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">I am <img src="https://img.icons8.com/dusk/64/000000/road.png" style="width:20px;height: auto;"> {{user.distance/1000}} km away from you.</li>
+            <li class="list-group-item">I will be doing my laundry on <img src="https://img.icons8.com/dusk/48/000000/calendar.png" style="width:20px;height: auto;"> {{user.date}}.</li>
+            <li class="list-group-item">I have a total <img src="https://img.icons8.com/color/48/000000/washing-machine.png" style="width:20px;height: auto;"> {{user.weight}} kg of dirty laundry.</li>
+          </ul>
+    </div> 
+    <div class="card-footer">
+        <button type="button" class="btn btn-primary btn-block" (click)="sendReq(user.matched)">Send Match Request</button>
+    </div>
+  </div>
+</div>
+  <br />
+
+ 

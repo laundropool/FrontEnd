@@ -1,0 +1,58 @@
+<app-user-nav></app-user-nav>
+
+<div class="container" style="margin-top:50px">
+
+    <div class="jumbotron jumbotron-fluid">
+    
+        <h1 style="text-align:center">Your Transactions</h1>
+      
+    </div>
+    <div *ngIf="!flag">
+    <div class=".d-none .d-sm-block">
+        <app-drop></app-drop><h4 style="margin-left:350px;">You have saved at least {{water}} L of water so far.</h4>
+      </div>
+    <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
+        <thead>
+        <tr>
+            <th >
+                <mfDefaultSorter by="laundrocash">Laundrocash</mfDefaultSorter>
+            </th>
+            <th >
+                <mfDefaultSorter by="transactionType">Type</mfDefaultSorter>
+            </th>
+            <th >
+                <mfDefaultSorter by="message">Message</mfDefaultSorter>
+            </th>
+            <th >
+                <mfDefaultSorter by="transactionDateTime">Date</mfDefaultSorter>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of mf.data">
+            <td>{{item.laundrocash}}</td>
+            <td>{{item.transactionType}}</td>
+            <td >{{item.message}}</td>
+            <td>{{item.transactionDateTime }}</td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="4">
+                <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+            </td>
+        </tr>
+        </tfoot>
+
+
+    </table>
+    
+</div>
+<div *ngIf="flag">
+    <p>No value</p>
+</div>
+</div>
+
+
+
+<app-footer></app-footer>

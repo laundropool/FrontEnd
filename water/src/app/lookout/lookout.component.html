@@ -1,0 +1,64 @@
+<form  #req="ngForm" (ngSubmit)="sendRequest(req)">
+  <div class="card">
+      <div class="card-header" style="text-align:center">Doing the laundary today?</div>
+      <div class="card-body">
+          <p>Select all that applies to your laundry:</p>
+          
+              <ul class="list-group">
+                      <li class="list-group-item">
+                              <div class="form-check">
+                                      <label class="form-check-label">
+                                          <input class="form-check-input"  name="WhitesOnly" type="checkbox" [(ngModel)]="white"> I am going to wash whites only.
+                                      </label>
+                                    </div>
+                            </li>
+                      <li class="list-group-item"><div class="form-check">
+                               <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input"  name="DenimsOrTrousersOnly" [(ngModel)]="denim">I am going to wash denims and trousers only.
+                              </label>
+                            </div></li>
+                            <li class="list-group-item"><div class="form-check">
+                              <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input"  name="GarmentsOnly" [(ngModel)]="garment">I am going to wash only the garments.
+                              </label>
+                            </div></li>
+                      <li class="list-group-item"><div class="form-check">
+                              <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input"  name="UnderGarmentsOnly" [(ngModel)]="undergarment">I am not going to wash the undergarments.
+                              </label>
+                            </div></li>
+                            <li class="list-group-item">
+                                  <div class="input-group mb-3">
+                                          <input type="number" class="form-control"  name="Weight" placeholder="Weight of your laundry" [(ngModel)]="weight">
+                                          <div class="input-group-append">
+                                            <span class="input-group-text">Kg.</span>
+                                          </div>
+                                        </div></li>
+                                        <li class="list-group-item">
+                                          <div class="input-group mb-3">
+                                                  <input type="datetime-local"  class="form-control" name="date" [(ngModel)]="date">
+                                                  <div class="input-group-append">
+                                                    <span class="input-group-text">Date & Time of laundry</span>
+                                                  </div>
+                                                </div></li>
+              </ul>
+         
+      </div> 
+      <div class="card-footer">
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-4">
+                          <button type="submit" class="btn btn-primary">Look for machine</button>
+                  </div>
+                  <div class="col-md-4">
+                          <br>
+                  </div>
+                  <div class="col-md-4" *ngIf="wash">
+                          <button type="button" (click)="lookForLaundry()" class="btn btn-primary">Look for laundry</button>
+                  </div>
+              </div>
+          </div>
+              
+      </div>
+    </div>
+  </form>

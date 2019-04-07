@@ -1,0 +1,44 @@
+<app-user-nav></app-user-nav>
+
+<div class="container" style="margin-top:50px">
+<div class="jumbotron jumbotron-fluid">
+    
+    <h1 style="text-align:center">Pending Requests</h1>
+  
+</div>
+<div *ngFor="let item of tempArr">
+
+<div class="card">
+  <div class="card-header" style="text-align:center">Hi! I am <img src="https://img.icons8.com/metro/26/000000/administrator-male.png" style="width:20px;height: auto;"> {{item.name}}!!</div> 
+  <div class="card-body">
+      <ul class="list-group list-group-flush">
+          <li class="list-group-item">I am <img src="https://img.icons8.com/dusk/64/000000/road.png" style="width:20px;height: auto;"> {{item.distance/1000}} km away from you.</li>
+          <li class="list-group-item">I will be doing my laundry on <img src="https://img.icons8.com/dusk/48/000000/calendar.png" style="width:20px;height: auto;"> {{item.date}}.</li>
+          <li class="list-group-item">I have a total <img src="https://img.icons8.com/color/48/000000/washing-machine.png" style="width:20px;height: auto;"> {{item.weight}} kg of dirty laundry.</li>
+        </ul>
+  </div> 
+  <div class="card-footer">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-4">
+                      <button type="button" (click)="accept(item.matched)" class="btn btn-success btn-block">Accept</button>
+              </div>
+              <div class="col-md-4">
+                      <br>
+              </div>
+              <div class="col-md-4" >
+                    <button type="button" (click)="reject(item.matched)" class="btn btn-danger btn-block">Reject</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+</div>
+<br />
+
+</div>
+
+<br/><br/><br/>
+
+<app-footer></app-footer>
+
